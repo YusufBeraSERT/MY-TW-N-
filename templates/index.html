@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sürpriz!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Color+Emoji&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Müzikler -->
+  <audio id="audio1" loop src="{{ url_for('static', filename='1.mp3') }}"></audio>
+  <audio id="audio2" loop src="{{ url_for('static', filename='2.mp3') }}"></audio>
+
+  <!-- 1. SAYFA: SLIDER (8 Fotoğraf) -->
+  <div id="page-slider" class="page active">
+    <div class="header-title">Sağa Kaydır! ❤️</div>
+    
+    <div class="slider-box" id="swipeBox">
+      <div class="track" id="track">
+        <div class="slide">
+          <img src="{{ url_for('static', filename='elify.png') }}" alt="Foto 1">
+          <div class="slide-content">
+            <h3>ELİFY</h3>
+            <p>FDSJKFHSDFHSDKJLHKLJDSHFJDSKLHFSLK</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='elifyy.png') }}" alt="Foto 2">
+          <div class="slide-content">
+            <h3>ELİFY ARABADA</h3>
+            <p>ARABAM DACİA</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='yeon.png') }}" alt="Foto 3">
+          <div class="slide-content">
+            <h3>yeon</h3>
+            <p>etütteki şifrelemeler</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='köpke.png') }}" alt="Foto 4">
+          <div class="slide-content">
+            <h3>KÖPKE ELİFY</h3>
+            <p>lunanın kayıp ikizi jfgklfjfgsdjflşdsjf(şaka alınma)</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='nero.png') }}" alt="Foto 5">
+          <div class="slide-content">
+            <h3>Nero</h3>
+            <p>Onurdan gelen ilahi bisküvi</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='di.png') }}" alt="Foto 6">
+          <div class="slide-content">
+            <h3>Dİ DİAMOND</h3>
+            <p>dimi</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='görüldü.png') }}" alt="Foto 7">
+          <div class="slide-content">
+            <h3>GÖRÜLDÜ</h3>
+            <p>Bana görüldü atardın artık o bile yok djfhdsjfhksdjlhfksld...</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="{{ url_for('static', filename='crush.png') }}" alt="Foto 8">
+          <div class="slide-content">
+            <h3>CRUSH</h3>
+            <p>SENİN SAAYENDE CRUSHERSLARDAN OLDUM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swipe-hint" id="swipeHint">Sola / Sağa Kaydır 👈👉</div>
+    <button class="next-btn" id="nextPageBtn" onclick="startCakePage()">Pastaya Geç(tam olmadı) 🎂</button>
+  </div>
+
+  <!-- 2. SAYFA: GERÇEKÇİ ÇİKOLATALI PASTA -->
+  <div id="page-cake" class="page">
+    <h2>İyi Ki Doğdun! 🥳</h2>
+
+    <div class="real-cake-container" id="cakeClickArea" onclick="blowOutCandles()">
+      <img src="{{ url_for('static', filename='pasta.png') }}" alt="Çikolatalı Pasta" class="cake-img">
+      
+      <!-- Fıstıklı halkanın üstüne dizilen 7 mum -->
+      <div class="pistachio-candles">
+        <div class="candle c1"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c2"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c3"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c4"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c5"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c6"><div class="flame"></div><div class="smoke"></div></div>
+        <div class="candle c7"><div class="flame"></div><div class="smoke"></div></div>
+      </div>
+
+      <!-- Pastanın tam ortasındaki 13 Süsü -->
+      <div class="age-badge">13</div>
+    </div>
+
+    <p class="cake-instruction">Mumları üflemek için pastaya tıkla! 🌬️</p>
+  </div>
+
+  <!-- 3. SAYFA: ZARF VE MÜSTAKİL NOT -->
+  <div id="page-letter" class="page">
+    <div class="letter-wrapper">
+      <div class="envelope" id="envelopeObj" onclick="openEnvelope()">
+        <div class="cap"></div>
+        <div class="pocket"></div>
+        <div class="front-pocket"></div>
+      </div>
+      
+      <!-- Not zarftan bağımsız katmanda durur, zarf kaybolunca ekranda kalır -->
+      <div class="note-paper" id="noteObj">
+        <p>İyi ki Doğdun Elify❤️ <br> Seni ilk gördüğüm veya ilk arkadaş olduğumuz zamanı hiç hatırlamıyorum ama o günden beri sürekli beni destekledin, iyi yaklaştın. tabii bazen kavgalar olur ama sen kavgada bile bana diğerleri gibi şeyler yapmadın iyi ki benim srkdaşım olmuşsun iyi ki şu okulun ortamında beni desteklemişsin seni gerçekten arkadaşça çookk seviyorum iyi ki varsın, iyiki doğdun twin🤍 </p>
+      </div>
+    </div>
+  </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
